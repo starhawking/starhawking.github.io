@@ -1,21 +1,22 @@
 # Miscelanious Linux and OpenStack Notes
 
-##Handy options for tcpdump:
+## Linux Networking Notes 
+####Handy options for tcpdump:
 ```shell
 tcpdump -nlei $interface
 ```
 
-##Check on the status of HAProxy:
+####Check on the status of HAProxy:
 ```shell
 echo "show info;show stat;show table" | socat /var/lib/haproxy/stats stdio
 ```
 
-##Pretty ip link details and statistics output:
+####Pretty ip link details and statistics output:
 ```shell
 ip -s -d -o link | sed G | tr '\\' '\n'
 ```
 
-##Check what Interface pairs up with a veth interface:
+####Check what Interface pairs up with a veth interface:
 ```shell
 ethtool -S $vethDevice
 ```
@@ -35,16 +36,28 @@ root@node-1:~# ip -o -d link | grep "^37"
 root@node-1:~#
 ```
 
-##List all Network Namespaces without using the ip command:
+####List all Network Namespaces without using the ip command:
 ```shell
 ls /var/run/netns
 ```
 
-##Find the Inode of a process’s Network Namespace:
+####Find the Inode of a process’s Network Namespace:
 ```shell
 readlink   /proc/{0..9}*/ns/net  | sort | uniq
 ```
-##Find the Inode of a Network Namespace:
+####Find the Inode of a Network Namespace:
 ```shell
 stat /var/run/netns/*
+```
+
+## OpenStack Networking Notes
+##### Quickly find what router is associated with a Network from the DB
+I have yet to find a quick way to identify which Neutron Router is associated with a given Neutron Network ID, so I've assembled the following query to speed up this process:
+```SQL
+SELECT router_id,port_id,network_id  FROM ports t1 INNER JOIN routerports t2 ON t1.id = t2.port_id where network_id="NETWORK_UUID";
+```
+
+This query can easily be called in bash with the following function:
+```shell
+network_to_router() { mysql neutron -e "SELECT router_id,port_id,network_id  FROM ports t1 INNER JOIN routerports t2 ON t1.id = t2.port_id where network_id=\"$1\";" ; }
 ```
