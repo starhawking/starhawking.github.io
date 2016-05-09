@@ -21,6 +21,20 @@ ethtool -S $vethDevice
 ```
 This ID will match up with the entry number in the output of ip link or ip addr
 
+An example of using this to match up a veth interface in a namespace to its corresponding veth interface in another namespace:
+```shell
+root@node-1:~# ip netns exec haproxy ip -d link show dev b_public
+36: b_public: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 32:cc:0c:f3:ea:34 brd ff:ff:ff:ff:ff:ff promiscuity 0
+    veth
+root@node-1:~# ip netns exec haproxy ethtool -S  b_public
+NIC statistics:
+     peer_ifindex: 37
+root@node-1:~# ip -o -d link | grep "^37"
+37: v_public: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master br-ex state UP mode DEFAULT group default qlen 1000\    link/ether d2:06:96:a4:39:18 brd ff:ff:ff:ff:ff:ff promiscuity 1 \    veth
+root@node-1:~#
+```
+
 ##List all Network Namespaces without using the ip command:
 ```shell
 ls /var/run/netns
