@@ -71,11 +71,13 @@ stat /var/run/netns/*
 ##### Quickly find what router is associated with a Network from the DB
 
 I have yet to find a quick way to identify which Neutron Router is associated with a given Neutron Network ID, so I've assembled the following query to speed up this process:
+
 ```SQL
 SELECT router_id,port_id,network_id  FROM ports t1 INNER JOIN routerports t2 ON t1.id = t2.port_id where network_id="NETWORK_UUID";
 ```
 
 This query can easily be called in bash with the following function:
+
 ```shell
 network_to_router() { mysql neutron -e "SELECT router_id,port_id,network_id  FROM ports t1 INNER JOIN routerports t2 ON t1.id = t2.port_id where network_id=\"$1\";" ; }
 ```
