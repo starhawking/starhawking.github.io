@@ -68,7 +68,7 @@ stat /var/run/netns/*
 
 ## OpenStack Networking Notes
 
-##### Quickly find what router is associated with a Network from the DB
+#### Quickly find what router is associated with a Network from the DB
 
 I have yet to find a quick way to identify which Neutron Router is associated with a given Neutron Network ID, so I've assembled the following query to speed up this process:
 
