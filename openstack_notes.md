@@ -22,7 +22,8 @@ Gather a variety of infornation from HAProxy:
 echo "show info;show stat;show table" | socat /var/lib/haproxy/stats stdio
 ```
 
-Cleanly print statistics for a few columns
+Cleanly print statistics for a few columns:
+
 ```shell
 echo "show stat" | socat /var/lib/haproxy/stats stdio | awk 'BEGIN{FS=","} {sub(/^#\ */, "", $0); print $1,$2,$9,$10}' | column -t
 ```
