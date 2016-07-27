@@ -35,7 +35,7 @@ echo "show stat" | socat /var/lib/haproxy/stats stdio | awk 'BEGIN {FS=","} NR =
 ```
 
 Additional details for each column can be found in the HAProxy documentation
-http://www.haproxy.org/download/1.5/doc/configuration.txt
+[http://www.haproxy.org/download/1.5/doc/configuration.txt](http://www.haproxy.org/download/1.5/doc/configuration.txt)
 
 #### Pretty ip link details and statistics output:
 
