@@ -28,6 +28,15 @@ Cleanly print statistics for a few columns:
 echo "show stat" | socat /var/lib/haproxy/stats stdio | awk 'BEGIN{FS=","} {sub(/^#\ */, "", $0); print $1,$2,$9,$10}' | column -t
 ```
 
+List out all available columns for easy reference:
+
+```shell
+echo "show stat" | socat /var/lib/haproxy/stats stdio | awk 'BEGIN {FS=","} NR == 1 {sub(/^#\ */, "", $0); for (i=1; i < NF; i++) { print "$"i" = "$i }}'
+```
+
+Additional details for each column can be found in the HAProxy documentation
+http://www.haproxy.org/download/1.5/doc/configuration.txt
+
 #### Pretty ip link details and statistics output:
 
 ```shell
