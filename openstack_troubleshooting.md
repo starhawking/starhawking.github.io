@@ -16,6 +16,12 @@ It is useful to be able to check which queues may be growing uncontrollably. Thi
 rabbitmqctl list_queues name consumers messages | grep -wv "0$"
 ```
 
+Check what queues don't have any consumers:
+
+```shell
+rabbitmqctl list_queues name consumers messages | awk '$2=="0" {print}'
+```
+
 ## Useful Database Operations:
 
 #### Check the number of security group rules per security group:
