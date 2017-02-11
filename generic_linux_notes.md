@@ -14,3 +14,10 @@ The easiest workaround seems to be to actually have the volume mounted, but moun
 # mount -r -o remount /dev/sdbroken1
 # xfs_repair -n /dev/sdbroken1
 ```
+## Sorting ps by Memory Utilization
+Found at the following URL (I wish I could say it was from looking through the man pages, but alas, no): https://linuxconfig.org/using-ps-command-to-sort-output-based-on-ram-usage
+
+```shell
+$ ps au --sort=-%mem
+$ ps auk-%mem
+```
