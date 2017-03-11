@@ -98,3 +98,15 @@ This query can easily be called in bash with the following function:
 ```shell
 network_to_router() { mysql neutron -e "SELECT router_id,port_id,network_id  FROM ports t1 INNER JOIN routerports t2 ON t1.id = t2.port_id where network_id=\"$1\";" ; }
 ```
+
+## OpenStack Client Notes
+
+#### Easier Python Bindings
+
+The standard OpenStack Python bindings are painful to use. Python Shade is so much easier.
+[Python Shade](https://pypi.python.org/pypi/shade)
+
+#### Using clouds.yaml
+
+An easier way to define configuration options for the CLI and Python Shade bindings. No more exporting environment variables!
+[clouds.yaml](https://docs.openstack.org/developer/python-openstackclient/man/openstack.html#cloud-configuration)
