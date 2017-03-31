@@ -110,3 +110,21 @@ The standard OpenStack Python bindings are painful to use. Python Shade is so mu
 
 An easier way to define configuration options for the CLI and Python Shade bindings. No more exporting environment variables!
 [clouds.yaml](https://docs.openstack.org/developer/python-openstackclient/man/openstack.html#cloud-configuration)
+
+#### Using a socks proxy with the openstack clients
+
+The latest version of python requests supports utilizing a socks proxy, thus allowing the Openstack clients to utilize a socks proxy directly
+
+```shell
+$ sudo pip install --upgrade requests
+$ sudo pip install requests[socks]
+```
+
+You will can now export the following environment variables in your shell session to utilize a socks proxy.
+
+```shell
+$ export http_proxy="socks5://localhost:2081"
+$ export https_proxy="socks5://localhost:2081"
+```
+
+You will now be able to utilize the standard openstack cli tools normally.
