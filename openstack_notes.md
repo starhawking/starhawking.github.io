@@ -110,6 +110,31 @@ The standard OpenStack Python bindings are painful to use. Python Shade is so mu
 
 An easier way to define configuration options for the CLI and Python Shade bindings. No more exporting environment variables!
 [clouds.yaml](https://docs.openstack.org/developer/python-openstackclient/man/openstack.html#cloud-configuration)
+An example clouds.yaml featuring forcing a v3 endpoint (without v2 identity endpoints in the service catalog) as well as forcing the cli to use the public endpoint.
+
+`clouds.yaml` can be placed in `~/config/openstack/` `/etc/openstack/` or in your current working directory.
+
+##### Example clouds.yaml
+```yaml
+clouds:
+  mos8:
+    region_name: RegionOne
+    auth:
+      username: admin
+      password: admin
+      project_name: admin
+      auth_url: https://172.16.104.35:5000/v3
+      user_domain_name: default
+    identity_api_version: 3
+    interface: public
+    verify: False
+```
+
+##### Using a clouds.yaml
+
+```shell
+$ openstack  --os-cloud mos8 token issue
+```
 
 #### Using a socks proxy with the openstack clients
 
