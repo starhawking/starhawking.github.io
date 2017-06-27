@@ -21,3 +21,6 @@ Found at the following URL (I wish I could say it was from looking through the m
 $ ps au --sort=-%mem
 $ ps auk-%mem
 ```
+
+## Excellent reference on interpreting vmstat output
+https://www.thomas-krenn.com/en/wiki/Linux_Performance_Measurements_using_vmstat#High_IO_Read_Load_Example
