@@ -9,7 +9,7 @@ permalink: "/8bit"
 Notes for my 6502 and 65c816 projects
 
 # Links
-
+* [Components for extending the 6502?](https://www.reddit.com/r/beneater/comments/jwmqai/components_for_extending_the_6502/)
 * https://mansfield-devine.com/speculatrix/2016/12/zolatron-address-decoding/
 * http://sbc.rictor.org/decoder.html
 * http://6502.org/users/garth/projects.php?project=7
