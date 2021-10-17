@@ -6,6 +6,13 @@ permalink: "/generic_linux_notes"
 
 # Generic Linux Notes
 
+## Right Click Not in Gnome
+Apparently Gnome switched to using 2 fingers for right click by default. This can be reverted to having a regular ol' right click:
+
+```shell
+$ gsettings set org.gnome.desktop.peripherals.touchpad click-method areas
+```
+
 ## XFS Filesystem Repair
 I've encountered situations where `xfs_check` and `xfs_repair -n` reported an unmounted filesystem as both mounted and readable. 
 The easiest workaround seems to be to actually have the volume mounted, but mounted in read-only. If that doesn't work, the all-knowing search engine will need to be further consulted.
