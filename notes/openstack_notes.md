@@ -1,7 +1,7 @@
 ---
 title: Linux and OpenStack Notes
 layout: page
-permalink: "/Misc_Notes"
+permalink: "/notes/Misc_Notes"
 ---
 
 # Miscelanious Linux and OpenStack Notes

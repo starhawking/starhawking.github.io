@@ -1,7 +1,7 @@
 ---
 title: Python Notes
 layout: page
-permalink: "/python_notes"
+permalink: "/notes/python_notes"
 ---
 
 # Misc Python Notes

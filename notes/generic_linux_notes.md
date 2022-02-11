@@ -1,7 +1,7 @@
 ---
 title: Generic Linux Notes
 layout: page
-permalink: "/generic_linux_notes"
+permalink: "/notes/generic_linux_notes"
 ---
 
 # Generic Linux Notes
