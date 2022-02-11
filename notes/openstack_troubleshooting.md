@@ -1,7 +1,7 @@
 ---
 title: OpenStack Troubleshooting Notes
 layout: page
-permalink: "/OpenStack_Troubleshooting"
+permalink: "/notes/OpenStack_Troubleshooting"
 ---
 
 # OpenStack Troubleshooting Note

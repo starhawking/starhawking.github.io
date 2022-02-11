@@ -1,7 +1,7 @@
 ---
 title: 8 Bit Computer
 layout: page
-permalink: "/8bit"
+permalink: "/notes/8bit"
 ---
 
 # DIY Computer Project

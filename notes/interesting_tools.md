@@ -1,7 +1,7 @@
 ---
 title: Interesting Tools
 layout: page
-permalink: "/interesting_tools"
+permalink: "/notes/interesting_tools"
 ---
 
 # Interesting tools I've encountered
